@@ -22,7 +22,7 @@ const BlogsHome = async () => {
       height: 820,
     },
     {
-      title: "How to create a blog with Next.js",
+      title: "How to create a blog with Next.js2",
       description: "Learn how to create a blog with Next.js, Tailwind CSS, and Markdown.",
       link: "how-to-create-a-blog-with-nextjs",
       image: "/blog3.png",
@@ -30,7 +30,7 @@ const BlogsHome = async () => {
       height: 857,
     },
     {
-      title: "How to create a blog with Next.js",
+      title: "How to create a blog with Next.2",
       description: "Learn how to create a blog with Next.js, Tailwind CSS, and Markdown.",
       link: "how-to-create-a-blog-with-nextjs",
       image: "/blog3.png",

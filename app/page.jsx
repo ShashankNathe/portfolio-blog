@@ -2,6 +2,7 @@ import Badge from "@/components/Badge";
 import BlogsHome from "@/components/BlogsHome";
 import ContactHome from "@/components/ContactHome";
 import Projects from "@/components/Projects";
+import Services from "@/components/Services";
 import Skills from "@/components/Skills";
 import Image from "next/image";
 import Link from "next/link";
@@ -43,6 +44,7 @@ export default function Home() {
         </div>
       </section>
       <BlogsHome />
+      <Services />
       <ContactHome />
     </>
   );
