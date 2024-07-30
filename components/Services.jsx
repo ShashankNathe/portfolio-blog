@@ -1,4 +1,4 @@
-import { AppWindow, BookOpen, Code, Gauge, Globe, MonitorSmartphone, ServerIcon, ShoppingCart, SwatchBook, Terminal, UserCog, Wrench } from "lucide-react";
+import { AppWindow, BookOpen, Code, Gauge, Globe, MonitorSmartphone, ServerIcon, ShoppingCart, SwatchBook, Terminal, UserCog, WandSparkles, Wrench } from "lucide-react";
 import React from "react";
 
 const Services = () => {
@@ -8,10 +8,16 @@ const Services = () => {
       description: "Create a custom MVP for your SaaS application using scalable, secure technologies tailored to your business needs.",
       icon: <AppWindow />,
     },
+
     {
-      title: "Web Development",
-      description: "Build or enhance your responsive, high-performance website with latest technologies.",
-      icon: <Code />,
+      title: "Custom Web Applications",
+      description: "Develop custom, responsive, high-performance web applications tailored to your specific business needs and goals.",
+      icon: <ServerIcon />,
+    },
+    {
+      title: "No Code Development",
+      description: "Quickly build and deploy custom applications using no-code platforms, eliminating the need for extensive coding.",
+      icon: <WandSparkles />,
     },
     {
       title: "Web Design",
@@ -48,11 +54,7 @@ const Services = () => {
       description: "Provide ongoing maintenance and support to keep your website up-to-date, secure, and running smoothly.",
       icon: <Wrench />,
     },
-    {
-      title: "Custom Web Applications",
-      description: "Develop custom web applications tailored to your specific business needs and goals.",
-      icon: <ServerIcon />,
-    },
+
     {
       title: "UX Design",
       description: "Improve your website's usability and user satisfaction through thoughtful UX design.",
@@ -74,11 +76,10 @@ const Services = () => {
             key={service.title}
             className="flex flex-col items-center py-5 p-3 rounded border group border-neutral-200 bg-neutral-50 text-sm leading-4 text-neutral-900 no-underline dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 hover:[background:linear-gradient(45deg,#262626,theme(colors.neutral.800)_50%,#262626)_padding-box,conic-gradient(from_var(--border-angle),theme(colors.slate.600/.48)_80%,_theme(colors.neutral.500)_86%,_theme(colors.neutral.300)_90%,_theme(colors.neutral.500)_94%,_theme(colors.slate.600/.48))_border-box] hover:border-transparent hover:animate-border ease-in cursor-pointer"
           >
-            <h2 className="flex items-center gap-2 mb-4 text-xl font-medium tracking-tighter">
+            <h2 className="flex items-center gap-2 mb-4 text-lg font-medium tracking-tighter">
               {service.icon}
               {service.title}
             </h2>
-            {/* <div className="flex"></div> */}
             <p className="text-neutral-600 dark:text-neutral-400 text-center text-base">{service.description}</p>
           </div>
         ))}

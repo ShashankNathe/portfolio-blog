@@ -50,10 +50,10 @@ const Projects = () => {
           >
             <div className="w-11/12">
               <div className="flex items-center justify-between">
-                <h1 className="text-lg md:text-2xl">{project.title}</h1>
+                <h2 className="text-lg font-medium tracking-tighter">{project.title}</h2>
                 <ArrowRight className="transform transition-transform duration-300 group-hover:-rotate-45" />
               </div>
-              <p className="text-neutral-600 dark:text-neutral-400 mt-2 leading-5">{project.description}</p>
+              <p className="text-neutral-600 dark:text-neutral-400 text-base">{project.description}</p>
             </div>
             <div className="w-11/12 mt-3">
               <Image src={project.image} alt={`Project ${project.title} Home Page`} className="w-full h-52" width={project.width} height={project.height} />
