@@ -27,7 +27,7 @@ export const projectData = [
     title: "PMS",
     description: "A appraisal management system designed to streamline performance evaluations.",
     image: "/pms.png",
-    width: 2600,
-    height: 1810,
+    width: 1915,
+    height: 862,
   },
 ];
