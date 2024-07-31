@@ -9,10 +9,15 @@ module.exports = {
       },
       animation: {
         border: "border 4s linear infinite",
+        borderAnimation: "animateBorder 3s linear infinite",
       },
       keyframes: {
         border: {
           to: { "--border-angle": "360deg" },
+        },
+        animateBorder: {
+          "0%": { borderColor: "#262626" },
+          "100%": { borderColor: "theme(colors.slate.600/.48)" },
         },
       },
     },
