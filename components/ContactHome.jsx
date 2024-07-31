@@ -2,6 +2,7 @@ import { GitBranch, Github, Linkedin, LinkedinIcon, LucideLinkedin, Phone } from
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Badge from "./Badge";
 
 const ContactHome = () => {
   return (
@@ -66,26 +67,27 @@ const ContactHome = () => {
 
                 <div className=" mt-6 ">
                   <div className="flex rounded-md shadow-sm sm:max-w-md justify-end">
-                    <button
-                      type="submit"
-                      className="rounded-md w-full sm:w-auto bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                    >
-                      Send Message
-                    </button>
+                    <Badge>
+                      <button type="submit" className="p-2">
+                        Send Message
+                      </button>
+                    </Badge>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </form>
-        <div className="mt-5 sm:mb-0 sm:mt-16 sm:ml-4">
-          <p className="text-neutral-600 dark:text-neutral-400 text-base  text-justify">
-            {" "}
-            I'm currently available for freelance work. If you have a project in mind that you'd like to discuss, feel free to reach out to me. I'm always open to new opportunities
-            and collaborations.
-          </p>
-          <p className="text-neutral-600 dark:text-neutral-400 text-base mt-2">I'd love to hear from you!</p>
-          <div className="flex items-center gap-3 mt-3 justify-between">
+        <div className=" flex flex-col items-center justify-between sm:ml-4 h-full">
+          <div>
+            <p className="text-neutral-600 dark:text-neutral-400 text-base  text-justify">
+              {" "}
+              I'm currently available for freelance work. If you have a project in mind that you'd like to discuss, feel free to reach out to me. I'm always open to new
+              opportunities and collaborations.
+            </p>
+            <p className="text-neutral-600 dark:text-neutral-400 text-base mt-2">I'd love to hear from you!</p>
+          </div>
+          <div className="flex items-center gap-3 justify-between w-full pb-1 mt-10 sm:mt-0">
             <div className="flex items-center gap-3">
               <Phone />
               <p className="text-neutral-600 dark:text-neutral-400 text-base">+91 8483851903</p>
