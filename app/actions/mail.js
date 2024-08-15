@@ -29,17 +29,13 @@ export async function sendContactEmail(formData) {
     port: 465, // Typically 587 or 465
     secure: true, // true for 465, false for other ports
     auth: {
-      user: "shashank.fuzen@gmail.com", // SMTP username
-      pass: "lbpz tcux ciuh enyb", // SMTP password
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
     },
-    // auth: {
-    //   user: process.env.SMTP_USER, // SMTP username
-    //   pass: process.env.SMTP_PASS, // SMTP password
-    // },
   });
   const mailOptions = {
-    from: "shashank.fuzen@gmail.com",
-    to: "shashank.testing.fuzen@gmail.com",
+    from: process.env.SMTP_USER,
+    to: process.env.OWNER_EMAIL,
     subject: `Contact form submission from ${name}`,
     text: message,
   };

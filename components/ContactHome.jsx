@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import Badge from "./Badge";
-import { sendContactEmail } from "@/actions/mail";
+import { sendContactEmail } from "@/app/actions/mail";
 
 const ContactHome = () => {
   const [alert, setAlert] = useState(null);
