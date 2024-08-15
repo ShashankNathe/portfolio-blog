@@ -1,15 +1,39 @@
-import { GitBranch, Github, Linkedin, LinkedinIcon, LucideLinkedin, Phone } from "lucide-react";
+"use client";
+import { Linkedin, Phone, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import Badge from "./Badge";
+import { sendContactEmail } from "@/actions/mail";
 
 const ContactHome = () => {
+  const [alert, setAlert] = useState(null);
+  const [visible, setVisible] = useState(false);
+  const [pending, setPending] = useState(false);
+
+  const sendEmail = async (formData) => {
+    setPending(true);
+    const response = await sendContactEmail(formData);
+    if (response && response.success) {
+      setAlert({ success: true, message: "Thank you for reaching out! I will get back to you soon." });
+      setVisible(true);
+    } else {
+      setAlert({ success: false, message: response.error || "Something went wrong." });
+      setVisible(true);
+    }
+    setPending(false);
+  };
   return (
-    <section className="mb-10">
+    <section className="mb-10 mt-10">
       <h1 className="mb-8 text-3xl font-medium tracking-tighter">Lets get in touch</h1>
       <div className="grid sm:grid-cols-2 gap-4 items-start">
-        <form>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            sendEmail(formData);
+          }}
+        >
           <div className="space-y-12">
             <div className="border-b border-gray-900/10">
               <div className="gap-y-3">
@@ -49,14 +73,14 @@ const ContactHome = () => {
                 </div>
 
                 <div className="mb-3">
-                  <label htmlFor="about" className="block text-sm font-medium leading-6 ">
+                  <label htmlFor="message" className="block text-sm font-medium leading-6 ">
                     Message
                   </label>
                   <div className="mt-2">
                     <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-800 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
                       <textarea
-                        id="about"
-                        name="about"
+                        id="message"
+                        name="message"
                         rows={3}
                         className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground  disabled:cursor-not-allowed disabled:opacity-50 border-gray-600 focus:border-gray-400"
                         defaultValue={""}
@@ -65,11 +89,30 @@ const ContactHome = () => {
                   </div>
                 </div>
 
-                <div className=" mt-6 ">
+                <div
+                  className={`${alert?.success ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"} rounded-md transition-all duration-500 ease-in-out ${
+                    visible ? "opacity-100 max-h-screen p-4" : "opacity-0 max-h-0"
+                  } overflow-hidden`}
+                >
+                  <div className="flex justify-between">
+                    <p>{alert?.message}</p>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        setVisible(false);
+                      }}
+                      className="text-lg font-bold"
+                    >
+                      <X />
+                    </button>
+                  </div>
+                </div>
+
+                <div className=" mt-3 ">
                   <div className="flex rounded-md shadow-sm sm:max-w-md justify-end">
                     <Badge>
-                      <button type="submit" className="p-2">
-                        Send Message
+                      <button className="p-2" type="submit" disabled={pending}>
+                        {pending ? "Sending..." : "Send Message"}
                       </button>
                     </Badge>
                   </div>
@@ -97,7 +140,7 @@ const ContactHome = () => {
                 <Linkedin width={25} height={25} />
               </Link>
               <Link href={"https://github.com/shashanknathe"} target="_blank">
-                <Image src="/github.png" alt="github link icon" width={25} height={25} />
+                <img src="/github.png" alt="github link icon" width={25} height={25} />
               </Link>
             </div>
           </div>
