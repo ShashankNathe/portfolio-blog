@@ -12,7 +12,6 @@ const ContactHome = () => {
   const [pending, setPending] = useState(false);
 
   const sendEmail = async (formData) => {
-    setPending(true);
     const response = await sendContactEmail(formData);
     if (response && response.success) {
       setAlert({ success: true, message: "Thank you for reaching out! I will get back to you soon." });
@@ -30,6 +29,8 @@ const ContactHome = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
+            setVisible(false);
+            setPending(true);
             const formData = new FormData(e.target);
             sendEmail(formData);
           }}
@@ -123,26 +124,25 @@ const ContactHome = () => {
         </form>
         <div className=" flex flex-col items-center justify-between sm:ml-4 h-full">
           <div>
-            <p className="text-neutral-600 dark:text-neutral-400 text-base  text-justify">
+            <p className="text-neutral-600 dark:text-neutral-400 text-base text-left">
               {" "}
-              I'm currently available for freelance work. If you have a project in mind that you'd like to discuss, feel free to reach out to me. I'm always open to new
-              opportunities and collaborations.
+              If you have any ideas in mind that you'd like to discuss, feel free to reach out to me. I'm always open to new opportunities and collaborations.
             </p>
             <p className="text-neutral-600 dark:text-neutral-400 text-base mt-2">I'd love to hear from you!</p>
           </div>
-          <div className="flex items-center gap-3 justify-between w-full pb-1 mt-10 sm:mt-0">
+          <div className="flex items-center gap-3 justify-end w-full pb-1 mt-10 sm:mt-0">
             <div className="flex items-center gap-3">
               <Phone />
               <p className="text-neutral-600 dark:text-neutral-400 text-base">+91 8483851903</p>
             </div>
-            <div className="flex items-center gap-3">
+            {/* <div className="flex items-center gap-3">
               <Link href={"https://www.linkedin.com/in/shashank-nathe-6730b2205/"} target="_blank">
                 <Linkedin width={25} height={25} />
               </Link>
               <Link href={"https://github.com/shashanknathe"} target="_blank">
                 <img src="/github.png" alt="github link icon" width={25} height={25} />
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -1,9 +1,9 @@
 import React from "react";
-import { blogs } from "@/utils/blogsList";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import BlogList from "./BlogList";
-const page = () => {
+import { getBlogs } from "../actions/database";
+export const fetchCache = "force-no-store";
+const page = async () => {
+  const blogs = await getBlogs();
   if (blogs.length === 0) {
     return (
       <section className="mb-10">
@@ -12,7 +12,7 @@ const page = () => {
     );
   }
 
-  return <BlogList blogs={blogs} />;
+  return <BlogList blogs={JSON.parse(JSON.stringify(blogs))} />;
 };
 
 export default page;

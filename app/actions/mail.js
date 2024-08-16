@@ -1,5 +1,6 @@
 "use server";
 import nodemailer from "nodemailer";
+import { turso } from "./database";
 
 export async function sendContactEmail(formData) {
   if (!formData) {
@@ -39,7 +40,14 @@ export async function sendContactEmail(formData) {
     subject: `Contact form submission from ${name}`,
     text: message,
   };
+  try {
+    const now = new Date();
+    const offset = 5.5;
+    const istTime = new Date(now.getTime() + offset * 60 * 60 * 1000);
+    const formattedISTTime = istTime.toISOString().slice(0, 19).replace("T", " ");
 
+    await turso.execute(`INSERT INTO contact_forms (name, email, message, created_at) VALUES (?, ?, ?, ?)`, [name, email, message, formattedISTTime]);
+  } catch {}
   try {
     await transporter.sendMail(mailOptions);
     return { success: true };

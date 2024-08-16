@@ -69,7 +69,7 @@ const Services = () => {
 
   return (
     <section className="mb-10">
-      <h1 className="mb-8 text-3xl font-medium tracking-tighter">Services</h1>
+      <h1 className="mb-8 text-3xl font-medium tracking-tighter">Areas I Focus On</h1>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {services.map((service) => (
           <div
