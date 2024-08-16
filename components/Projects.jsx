@@ -1,5 +1,4 @@
 import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { projectData } from "@/utils/projectList";
@@ -23,7 +22,7 @@ const Projects = () => {
               <p className="text-neutral-600 dark:text-neutral-400 text-base">{project.description}</p>
             </div>
             <div className="w-11/12 mt-3">
-              <Image src={project.image} alt={`Project ${project.title} Home Page`} className="w-full h-52 rounded" width={project.width} height={project.height} />
+              <img src={project.image} alt={`Project ${project.title} Home Page`} className="w-full h-52 rounded" width={project.width} height={project.height} />
             </div>
           </Link>
         ))}

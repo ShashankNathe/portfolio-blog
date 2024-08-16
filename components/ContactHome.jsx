@@ -1,7 +1,5 @@
 "use client";
-import { Linkedin, Phone, X } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
+import { Phone, X } from "lucide-react";
 import React, { useState } from "react";
 import Badge from "./Badge";
 import { sendContactEmail } from "@/app/actions/mail";

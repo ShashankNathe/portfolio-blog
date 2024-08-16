@@ -1,6 +1,5 @@
 import React from "react";
 import Badge from "./Badge";
-import Image from "next/image";
 
 const Skills = () => {
   const skills = [
@@ -21,7 +20,7 @@ const Skills = () => {
         {skills.map((skill) => (
           <Badge key={skill.name}>
             <div className="flex flex-col items-center justify-center w-full text-lg md:text-2xl py-4 md:py-6">
-              <Image alt={skill.name} src={skill.logo} className="!mr-1 w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16" width="54" height="54" />
+              <img alt={skill.name} src={skill.logo} className="!mr-1 w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16" width="54" height="54" />
               <h2 className="text-lg font-medium tracking-tighter mt-4">{skill.name}</h2>
             </div>
           </Badge>
