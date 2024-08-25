@@ -3,11 +3,12 @@ import Link from "next/link";
 import React from "react";
 import { projectData } from "@/utils/projectList";
 const Projects = () => {
+  const data = projectData.slice(0, 4);
   return (
     <>
       <h1 className="mb-8 text-3xl font-medium tracking-tighter">Projects</h1>
       <div className="grid sm:grid-cols-2 gap-4">
-        {projectData.map((project) => (
+        {data.map((project) => (
           <Link
             key={project.title}
             href={`${project.link}`}
