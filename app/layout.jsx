@@ -4,21 +4,37 @@ import { Navbar } from "@/components/nav/Nav";
 import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
-
+export const metadata1 = {
+  title: "LinkedAuto",
+  description: "Manage your LinkedIn posts with ease",
+  image: "/logo.png",
+  type: "website",
+};
 export const metadata = {
-  metadataBase: new URL("https://localhost:3000"),
+  metadataBase: new URL("https://shashanknathe.vercel.app/"),
   title: {
     default: "Shashank Nathe",
     template: "%s | Shashank Nathe",
   },
   description: "Developer",
+  site_name: "Shashank Nathe Portfolio",
+  locale: "en_US",
+  keywords: "Shashank, Shashank Nathe, blogs, portfolio",
   openGraph: {
     title: "Shashank Nathe",
     description: "Developer",
-    url: "https://localhost:3000",
+    url: "https://shashanknathe.vercel.app/",
     siteName: "Shashank Nathe",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/logo.png",
+        width: 32,
+        height: 32,
+        alt: "Shashank Nathe Logo",
+      },
+    ],
   },
   robots: {
     index: true,
