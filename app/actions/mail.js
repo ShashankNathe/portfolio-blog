@@ -26,9 +26,9 @@ export async function sendContactEmail(formData) {
     return { success: false, error: "Message must be at least 10 characters long." };
   }
   let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com", // Replace with your SMTP server host
-    port: 465, // Typically 587 or 465
-    secure: true, // true for 465, false for other ports
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,

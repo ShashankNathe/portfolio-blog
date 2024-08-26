@@ -14,17 +14,17 @@ export async function getBlogs(limit) {
     const response = await turso.execute(query);
 
     if (response.error) {
-      console.error("Error getting blogs:", response.error);
+      console.log("Error getting blogs:", response.error);
       return [];
     }
 
     if (response.rows && response.rows.length > 0) {
       return response.rows;
     }
-    console.error("Error getting blogs: No rows returned");
+    console.log("Error getting blogs: No rows returned");
     return [];
   } catch (error) {
-    console.error("Error getting blogs:", error);
+    console.log("Error getting blogs:", error);
     return [];
   }
 }
@@ -35,7 +35,7 @@ export async function getBlogBySlug(slug) {
     const response = await turso.execute(query, [slug]);
 
     if (response.error) {
-      console.error("Error getting blog by slug:", response.error);
+      console.log("Error getting blog by slug:", response.error);
       return null;
     }
 
@@ -43,10 +43,10 @@ export async function getBlogBySlug(slug) {
       return response.rows[0]; // Return the first matching blog
     }
 
-    console.error("Error getting blog by slug: No rows returned");
+    console.log("Error getting blog by slug: No rows returned");
     return null;
   } catch (error) {
-    console.error("Error getting blog by slug:", error);
+    console.log("Error getting blog by slug:", error);
     return null;
   }
 }

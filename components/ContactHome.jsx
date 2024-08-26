@@ -15,7 +15,7 @@ const ContactHome = () => {
       setAlert({ success: true, message: "Thank you for reaching out! I will get back to you soon." });
       setVisible(true);
     } else {
-      setAlert({ success: false, message: response.error || "Something went wrong." });
+      setAlert({ success: false, message: "Something went wrong." });
       setVisible(true);
     }
     setPending(false);
