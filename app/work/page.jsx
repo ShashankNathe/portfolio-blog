@@ -67,7 +67,7 @@ const page = () => {
           </div>
           <div className="mt-5">
             {project.description}
-            <div className="flex gap-2 items-center mt-2">
+            <div className="flex gap-2 items-center mt-2 flex-wrap">
               {project.stack.map((s, i) => {
                 return (
                   <div
